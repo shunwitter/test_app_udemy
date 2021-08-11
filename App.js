@@ -76,7 +76,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text>Pick image and upload to firebase storage</Text>
-      <Button title="Select image" onPress={pickImage} />
+      <Button title="Take a photo" onPress={pickImage} />
       {imageUrl &&
         <View>
           <Image source={{ uri: imageUrl }} style={{ width: 200, height: 200, margin: 20 }} />
