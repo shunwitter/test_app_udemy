@@ -4,7 +4,7 @@ import { Alert, StyleSheet, Text, View, Button, Image } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import firebase from 'firebase';
 
-export default function PhotoUploader() {
+export default function PhotoUploaderScreen() {
   const [imageUrl, setImageUrl] = useState(null);
   const [imageUploadTime, setImageUploadTime] = useState(null);
   useEffect(() => {

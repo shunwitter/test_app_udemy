@@ -1,17 +1,11 @@
 import React from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 
-export default function HomeScreen({ navigation }) {
+export default function LinkTestScreen({ route }) {
+  const id = route.params ? route.params.id : null;
   return (
     <View style={styles.container}>
-      <Button
-        title="Go to PhotoUploader"
-        onPress={() => { navigation.navigate('PhotoUploader'); }}
-      />
-      <Button
-        title="Go to LinkTest"
-        onPress={() => { navigation.navigate('LinkTest'); }}
-      />
+      <Text>{id || 'No ID provided'}</Text>
     </View>
   );
 }
