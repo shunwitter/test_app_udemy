@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as Linking from 'expo-linking';
-import { firebaseConfig } from './env';
+import { firebaseConfig } from './configs/env';
 import firebase from 'firebase';
 
 import { navigate, navigationRef } from './src/navigations/RootNavigation';
@@ -17,18 +17,19 @@ if (firebase.apps.length === 0) {
   firebase.initializeApp(firebaseConfig);
 }
 
-const prefix = Linking.createURL('/');
+// const prefix = Linking.createURL('/');
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-  const linking = {
-    prefixes: [prefix],
-  };
-  // For Universal Links
+  const [debugLink, setDebugLink] = useState('');
   // const linking = {
-  //   prefixes: ['https://workabroad.jp', 'https://*.workabroad.jp'],
+  //   prefixes: [prefix],
   // };
+  // For Universal Links
+  const linking = {
+    prefixes: ['https://workabroad.jp', 'https://*.workabroad.jp'],
+  };
 
   // Run this command to test deep link (escaping ? string make it work on Simulator).
   // npx uri-scheme open exp://192.168.11.3:19000/--/screens/linktest\?id=123 --ios
@@ -36,6 +37,9 @@ export default function App() {
   function handleUrl(url) {
     console.log(url);
     const { path, queryParams } = Linking.parse(url);
+    const str = `${path}, ${JSON.stringify(queryParams)}`;
+    console.log(str);
+    setDebugLink(str);
     switch(path) {
       case 'screens/photouploader':
         navigate('PhotoUploader', queryParams);
@@ -67,7 +71,7 @@ export default function App() {
         linking={linking}
         fallback={<Text>Loading...</Text>}
       >
-        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} initialParams={{ debugLink }} />
         <Stack.Screen name="PhotoUploader" component={PhotoUploaderScreen} />
         <Stack.Screen name="LinkTest" component={LinkTestScreen} />
       </Stack.Navigator>

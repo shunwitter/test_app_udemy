@@ -2,7 +2,7 @@
   "expo": {
     "name": "Test App",
     "slug": "test_app",
-    "version": "1.0.0",
+    "version": "1.0.3",
     "orientation": "portrait",
     "scheme": "testapp",
     "icon": "./assets/icon.png",
@@ -19,12 +19,18 @@
     ],
     "ios": {
       "bundleIdentifier": "jp.workabroad.testapp",
-      "buildNumber": "1.0.0",
+      "buildNumber": "1.0.3",
+      "googleServicesFile": "./configs/GoogleService-Info.plist",
+      "associatedDomains": [
+        "applinks:workabroad.jp",
+        "applinks:www.workabroad.jp"
+      ],
       "supportsTablet": true
     },
     "android": {
       "package": "jp.workabroad.testapp",
       "versionCode": 1,
+      "googleServicesFile": "./configs/google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"

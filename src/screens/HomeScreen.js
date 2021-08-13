@@ -1,9 +1,11 @@
 import React from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 
-export default function HomeScreen({ navigation }) {
+export default function HomeScreen({ navigation, route }) {
+  const { debugLink } = route.params;
   return (
     <View style={styles.container}>
+      <Text>{`debugLink: ${debugLink}`}</Text>
       <Button
         title="Go to PhotoUploader"
         onPress={() => { navigation.navigate('PhotoUploader'); }}
