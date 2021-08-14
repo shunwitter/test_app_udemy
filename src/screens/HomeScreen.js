@@ -5,6 +5,7 @@ export default function HomeScreen({ navigation, route }) {
   const { debugLink } = route.params;
   return (
     <View style={styles.container}>
+      <Text>Version 1.0.6</Text>
       <Text>{`debugLink: ${debugLink}`}</Text>
       <Button
         title="Go to PhotoUploader"

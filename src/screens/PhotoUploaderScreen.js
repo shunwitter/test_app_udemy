@@ -39,8 +39,9 @@ export default function PhotoUploaderScreen() {
   }, [imageUploadTime]);
 
   async function fetchUrl(uid) {
-    const url = await firebase.storage().ref().child(`users/${uid}/images/test-app-image`).getDownloadURL();
-    setImageUrl(url);
+    firebase.storage().ref().child(`users/${uid}/images/test-app-image`).getDownloadURL()
+      .then(url => setImageUrl(url))
+      .catch((error) => { Alert.alert('No image yet', error.code); });
   }
 
   async function pickImage() {
