@@ -11,7 +11,7 @@ Only the author can see the photo by firebase security rules (if you configure i
 
 #### Firebase dynamic link
 - https://workabroadtestapp.page.link/linktest
-- https://workabroadtestapp.page.link/?link=https://www.workabroad.jp/screens/linktest?id=123&ibi=jp.workabroad.testapp&efr=1
+- https://workabroadtestapp.page.link/?link=https://www.workabroad.jp/screens/linktest?id%3D123&apn=jp.workabroad.testapp&isi=1316850892&ibi=jp.workabroad.testapp&efr=1
 
 #### Custom URL Scheme
 <a href="testapp://screens/linktest?id=333">testapp://screens/linktest?id=333</a>

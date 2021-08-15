@@ -2,7 +2,7 @@
   "expo": {
     "name": "Test App",
     "slug": "test_app",
-    "version": "1.0.7",
+    "version": "1.0.9",
     "orientation": "portrait",
     "scheme": "testapp",
     "icon": "./assets/icon.png",
@@ -19,7 +19,7 @@
     ],
     "ios": {
       "bundleIdentifier": "jp.workabroad.testapp",
-      "buildNumber": "1.0.7",
+      "buildNumber": "1.0.9",
       "googleServicesFile": "./configs/GoogleService-Info.plist",
       "associatedDomains": [
         "applinks:workabroad.jp",
@@ -29,14 +29,27 @@
     },
     "android": {
       "package": "jp.workabroad.testapp",
-      "versionCode": 7,
+      "versionCode": 9,
       "googleServicesFile": "./configs/google-services.json",
-      "permissions": ["CAMERA", "READ_INTERNAL_STORAGE", "READ_EXTERNAL_STORAGE"],
+      "permissions": [
+        "CAMERA", "READ_INTERNAL_STORAGE", "READ_EXTERNAL_STORAGE",
+        "WRITE_INTERNAL_STORAGE", "WRITE_EXTERNAL_STORAGE"
+      ],
       "intentFilters": [
         {
           "action": "VIEW",
           "data": [{
             "scheme": "testapp"
+          }],
+          "category": ["BROWSABLE", "DEFAULT"]
+        },
+        {
+          "action": "VIEW",
+          "autoVerify": true,
+          "data": [{
+            "scheme": "https",
+            "host": "www.workabroad.jp",
+            "pathPrefix": "/screens"
           }],
           "category": ["BROWSABLE", "DEFAULT"]
         },
